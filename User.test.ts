@@ -3,8 +3,16 @@ import User from './User';
 
 jest.mock('./User');
 
-function testUser(user: User): void {
+type InterfaceOf<T> = Pick<T, keyof T>;
+
+function testUser1(user: User): void {
+
 }
+
+function testUser2(user: InterfaceOf<User>): void {
+
+}
+
 
 describe('User', () => {
 
@@ -16,7 +24,8 @@ describe('User', () => {
     userMock.hello.mockReturnValue('hello-from-test');
     expect(userMock.hello()).toBe('hello-from-test');
 
-    testUser(userMock);
+    testUser1(userMock);
+    testUser2(userMock);
   });
 
 })
