@@ -3,10 +3,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "24.0.11",
-    "jest": "24.5.0",
+    "@types/jest": "25.2.2",
+    "jest": "26.0.1",
     "ts-jest": "25.5.1",
-    "ts-node": "8.0.3",
-    "typescript": "3.3.4000"
+    "ts-node": "8.10.1",
+    "typescript": "3.9.2"
   }
 }
