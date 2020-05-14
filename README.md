@@ -1,7 +1,7 @@
-TypeScript Jest Demo
+TypeScript Jest Mock Class Demo
 ===========================
 
-使用typescript就需要在`jest.config.js`中使用`ts-jest`作为`preset`
+在typescript使用jest来mock class在类型上有很多不方便的地方，所以引入了ts-jest中的utils
 
 ```
 npm install
