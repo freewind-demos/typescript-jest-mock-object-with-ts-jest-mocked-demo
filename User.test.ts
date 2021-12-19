@@ -1,31 +1,23 @@
 import {mocked} from 'ts-jest/utils'
-import User from './User';
+import {user} from './user';
 
-jest.mock('./User');
-
-type InterfaceOf<T> = Pick<T, keyof T>;
-
-function testUser1(user: User): void {
-
-}
-
-function testUser2(user: InterfaceOf<User>): void {
-
-}
-
+jest.mock('./user');
 
 describe('User', () => {
 
-  const userMock = mocked(new User('dummy'));
+  const userMock = mocked(user);
 
-  beforeEach(() => userMock.hello.mockClear());
+  beforeEach(() => jest.clearAllMocks());
 
-  it('hello', () => {
-    userMock.hello.mockReturnValue('hello-from-test');
-    expect(userMock.hello()).toBe('hello-from-test');
-
-    testUser1(userMock);
-    testUser2(userMock);
+  it('data fields are not changed', () => {
+    expect(userMock.name).toBe('testing-user')
   });
+
+  it('methods are mocked to empty mocking functions', () => {
+    expect(userMock.hello()).toBe(undefined);
+
+    userMock.hello.mockReturnValue('new-hello');
+    expect(userMock.hello()).toBe('new-hello');
+  })
 
 })
